@@ -19,6 +19,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -38,7 +39,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        getSupportActionBar().setElevation(0);
         //init views
         sign_in_bt = findViewById(R.id.sign_in);
         inputEmail = findViewById(R.id.email);
@@ -107,8 +107,7 @@ public class LoginActivity extends AppCompatActivity {
                                     });
                                     signInError.show();
                                 } else {
-                                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                    startActivity(intent);
+                                    checkIfEmailVerified();
                                 }
                             }
                         });
@@ -136,6 +135,40 @@ public class LoginActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         progressBar.setVisibility(View.GONE);
+    }
+
+    private void checkIfEmailVerified()
+    {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (user.isEmailVerified())
+        {
+            // user is verified, so you can finish this activity or send user to activity which you want.
+            finish();
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
+        }
+        else
+        {
+            // email is not verified, so just prompt the message to the user and restart this activity.
+            // NOTE: don't forget to log out the user.
+            //instantiate dialog box
+            AlertDialog.Builder verifyAcct = new AlertDialog.Builder(LoginActivity.this);
+            //Chain together various setter methods to set the dialog characteristics
+            verifyAcct.setTitle("Account Verification");
+            verifyAcct.setMessage(getString(R.string.notVerify));
+
+            verifyAcct.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+            verifyAcct.show();
+
+            FirebaseAuth.getInstance().signOut();
+            //restart this activity
+        }
     }
 }
 

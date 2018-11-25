@@ -20,4 +20,6 @@
     <string name="don_t_have_and_account_yet">Don\'t have and account yet?</string>
     <string name="sign_up">Sign up</string>
     <string name="icon">icon</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="notVerify">Account not verify, Kindly check your email and Click on the link to verify your account.</string>
 </resources>

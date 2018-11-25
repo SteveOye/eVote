@@ -2,6 +2,7 @@ package com.swiftgateicthub.evote;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,7 +22,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class SignupActivity extends AppCompatActivity {
 
-    public static final String LOG_TAG = SignupActivity.class.getName();
+    private static final String TAG = "SignupActivity";
     private TextView inputFstName, inputLstName, inputEmail, inputPassword;
     private ProgressBar progressBar;
     Button sign_up;
@@ -54,14 +55,14 @@ public class SignupActivity extends AppCompatActivity {
                 String password = inputPassword.getText().toString().trim();
 
                 if (TextUtils.isEmpty(firstName)) {
-                    Snackbar.make(v, "Enter a Name", Snackbar.LENGTH_LONG)
+                    Snackbar.make(v, "Enter your first name", Snackbar.LENGTH_LONG)
                             .setAction("Action", null)
                             .show();
                     return;
                 }
 
                 if (TextUtils.isEmpty(lastName)) {
-                    Snackbar.make(v, "Enter a Name", Snackbar.LENGTH_LONG)
+                    Snackbar.make(v, "Enter your last name", Snackbar.LENGTH_LONG)
                             .setAction("Action", null)
                             .show();
                     return;
@@ -93,7 +94,7 @@ public class SignupActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         progressBar.setVisibility(View.GONE);
-                        startActivity(new Intent(SignupActivity.this, MainActivity.class));
+                        sendVerificationEmail();
                         finish();
                     }
                 });
@@ -105,5 +106,35 @@ public class SignupActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         progressBar.setVisibility(View.GONE);
+    }
+
+    private void sendVerificationEmail()
+    {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        user.sendEmailVerification()
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            // email sent
+
+                            // after email is sent just logout the user and finish this activity
+                            FirebaseAuth.getInstance().signOut();
+                            startActivity(new Intent(SignupActivity.this, LoginActivity.class));
+                            finish();
+                        }
+                        else
+                        {
+                            // email not sent, so display message and restart the activity or do whatever you wish to do
+                            //restart this activity
+                            overridePendingTransition(0, 0);
+                            finish();
+                            overridePendingTransition(0, 0);
+                            startActivity(getIntent());
+
+                        }
+                    }
+                });
     }
 }
