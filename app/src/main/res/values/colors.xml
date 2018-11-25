@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#373547</color>
+    <color name="colorPrimaryDark">#373547</color>
+    <color name="colorAccent">#373547</color>
+
+
+    <color name="button">#756c99</color>
+    <color name="reset_note">#9d9d9d</color>
+    <color name="black_marlin">#373547</color>
+    <color name="selago">#fcfbfc</color>
+    <color name="spun_pearl">#a2a0a6</color>
+    <color name="white">#fff</color>
+</resources>

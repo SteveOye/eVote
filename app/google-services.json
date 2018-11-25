@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "586193723530",
+    "firebase_url": "https://evote-cba3f.firebaseio.com",
+    "project_id": "evote-cba3f",
+    "storage_bucket": "evote-cba3f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:586193723530:android:92ed52a8e2693104",
+        "android_client_info": {
+          "package_name": "com.swiftgateicthub.evote"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "586193723530-lurfi1k80vd3r2b4avv0f8rlkfsueqbf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.swiftgateicthub.evote",
+            "certificate_hash": "e89d03cb07d8c1442ea809f36e3662dc8b6eb7ce"
+          }
+        },
+        {
+          "client_id": "586193723530-bjbl4ait2bc89rq9800l1monrjk6bqa9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRiy998rB0DpVUCMltar3MCJcMNLTG-CQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "586193723530-bjbl4ait2bc89rq9800l1monrjk6bqa9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

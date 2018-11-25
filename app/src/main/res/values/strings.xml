@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">eVote</string>
+    <string name="email">Email</string>
+    <string name="sign_in">Sign In</string>
+    <string name="password_hint">Password</string>
+    <string name="or">OR</string>
+    <string name="sign_in_with_facebook">Sign in with Facebook</string>
+    <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="don_t_have_an_account_yet_sign_up">Don\'t have an account yet? Sign Up.</string>
+    <string name="minimum_password">Password too short, enter minimum 6 characters!</string>
+    <string name="auth_failed">Invalid Email or password.</string>
+    <string name="sign_header">Sign in with your eVote Account</string>
+    <string name="forgotpassword">Forgot Password?</string>
+    <string name="create_your_evote_account">Create your eVote Account</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="please_provide_your_email_address">Please provide your email address</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="register_now">Register Now</string>
+    <string name="don_t_have_and_account_yet">Don\'t have and account yet?</string>
+    <string name="sign_up">Sign up</string>
+    <string name="icon">icon</string>
+</resources>
