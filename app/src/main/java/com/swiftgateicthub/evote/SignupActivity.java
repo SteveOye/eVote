@@ -1,5 +1,7 @@
 package com.swiftgateicthub.evote;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -118,7 +120,18 @@ public class SignupActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
                             // email sent
+                            AlertDialog.Builder verifyAcct = new AlertDialog.Builder(SignupActivity.this);
+                            //Chain together various setter methods to set the dialog characteristics
+                            verifyAcct.setTitle("Account Verification");
+                            verifyAcct.setMessage(getString(R.string.mailSent));
 
+                            verifyAcct.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            });
+                            verifyAcct.show();
                             // after email is sent just logout the user and finish this activity
                             FirebaseAuth.getInstance().signOut();
                             startActivity(new Intent(SignupActivity.this, LoginActivity.class));
