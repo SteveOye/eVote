@@ -34,7 +34,7 @@
         android:baselineAligned="false"
         android:orientation="horizontal">
 
-        <android.support.design.widget.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputFstName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -52,9 +52,9 @@
                 android:textColor="@color/black_marlin"
                 app:backgroundTint="@color/black_marlin" />
 
-        </android.support.design.widget.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <android.support.design.widget.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLstName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -72,11 +72,11 @@
                 android:textColor="@color/black_marlin"
                 app:backgroundTint="@color/black_marlin" />
 
-        </android.support.design.widget.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayoutEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -93,9 +93,9 @@
             android:textColor="@color/black_marlin"
             app:backgroundTint="@color/black_marlin" />
 
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayoutPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -113,7 +113,7 @@
             android:textColor="@color/black_marlin"
             app:backgroundTint="@color/black_marlin" />
 
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/sign_up"
